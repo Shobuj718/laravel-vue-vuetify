@@ -10,6 +10,38 @@ window.Vue = require('vue');
 
 import Vuetify from "../plugins/vuetify"
 
+
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+import App from './components/App'
+import Hello from './components/Hello'
+import Home from './components/Home'
+import UsersIndex from './components/UsersIndex';
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/hello',
+            name: 'hello',
+            component: Hello,
+        },
+        {
+        	path: '/user',
+        	name: 'users.index',
+        	component:UsersIndex,
+        }
+    ],
+});
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,7 +61,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+ 
+
 const app = new Vue({
 	vuetify: Vuetify,
     el: '#app',
+    components: { App },
+    router,
 });
