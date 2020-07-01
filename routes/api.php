@@ -21,4 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return factory('App\User', 10)->make();
 });*/
 
-Route::get('/users', 'SpaController@users');
+Route::namespace('Api')->group(function () {
+    Route::get('/users', 'UsersController@index');
+});
