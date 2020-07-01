@@ -15,10 +15,12 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import App from './components/App'
-import Hello from './components/Hello'
-import Home from './components/Home'
+import App from './components/App';
+import Hello from './components/Hello';
+import Home from './components/Home';
 import UsersIndex from './components/UsersIndex';
+import UsersEdit from './components/UsersEdit';
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -37,6 +39,11 @@ const router = new VueRouter({
         	path: '/user',
         	name: 'users.index',
         	component:UsersIndex,
+        },
+        {
+            path: '/users/:id/edit',
+            name: 'users.edit',
+            component: UsersEdit,
         }
     ],
 });
